@@ -1,14 +1,22 @@
 import java.util.Arrays;
 
 public class 부분집합_3_재귀함수 {
-	static String[] 재료 = { "단무지", "참치", "햄", "소고기" };
-	static int N; // 재료 개수
-	static boolean[] sel; // 재료의 사용유무
+	static int[] 속;
+
+	static int N, R;
+	static boolean[] sel;
 
 	public static void main(String[] args) {
-		N = 4;
-		sel = new boolean[N];
+		N = 1000;
+		R = 1000;
+		sel = new boolean[R];
+		속 = new int[R];
 
+		
+		for(int i=0; i<1000; i++) {
+			속[i]=i;
+
+		}
 		powerset(0);
 	}
 
@@ -19,7 +27,7 @@ public class 부분집합_3_재귀함수 {
 			String tmp = "";
 			for (int i = 0; i < N; i++) {
 				if (sel[i])
-					tmp += 재료[i];
+					tmp += 속[i];
 			}
 			System.out.println(tmp);
 			return; //대전 일동;

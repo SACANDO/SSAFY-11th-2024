@@ -8,13 +8,27 @@ public class BOJ9657 {
 		Scanner sc = new Scanner(System.in);
 
 		int n = sc.nextInt();
-		game(0,n);
+
+		arr[1][n - 1] = 1;
 		
-		if(flag) {
+		if (n >= 3) {
+			arr[1][n - 3] = 3;
+			if (n >= 4) {
+				arr[1][n - 4] = 4;
+			}
+		}
+		
+		game(1, n);
+		
+		
+		if (flag) {
 			System.out.println("SK");
 		} else {
 			System.out.println("CY");
 		}
+
+
+
 
 		// 몇번째인지
 		// 몇개 돌 가져갔는지
@@ -25,28 +39,33 @@ public class BOJ9657 {
 	}
 
 	static int game(int cnt, int n) {
+
 		if (n <= 4) {
 			if ((n == 0 && cnt % 2 == 1) || ((n == 1 || n == 3 || n == 4) && cnt % 2 == 0)) {
 				flag = true;
-				return 1;
+
 			}
+			return 1;
 		}
 
 		if (arr[cnt + 1][n - 1] != 0) {
 			return arr[cnt + 1][n - 1];
 		} else {
-			game(cnt+1,n-1);
+			arr[cnt + 1][n - 1] = game(cnt + 1, n - 1);
 		}
+
 		if (arr[cnt + 1][n - 3] != 0) {
 			return arr[cnt + 1][n - 3];
 		} else {
-			game(cnt+1,n-3);
+			arr[cnt + 1][n - 3] = game(cnt + 1, n - 3);
 		}
+
 		if (arr[cnt + 1][n - 4] != 0) {
 			return arr[cnt + 1][n - 4];
 		} else {
-			game(cnt+1,n-4);
+			arr[cnt + 1][n - 4] = game(cnt + 1, n - 4);
 		}
+		return 1;
 
 	}
 }

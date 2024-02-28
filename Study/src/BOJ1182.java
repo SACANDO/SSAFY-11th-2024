@@ -21,7 +21,7 @@ public class BOJ1182 {
 
 			}
 		}
-		System.out.println(Arrays.toString(nArr));
+
 
 		int cnt = 0;
 		for (int i = 0; i < (1 << n)-1; i++) {

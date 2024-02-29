@@ -19,7 +19,7 @@ public class 부분집합_3_재귀함수 {
 			String tmp = "";
 			for (int i = 0; i < N; i++) {
 				if (sel[i])
-					tmp += sok[i];
+					tmp += sok[i]+" ";
 			}
 			System.out.println(tmp);
 			return; //대전 일동;

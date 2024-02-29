@@ -35,7 +35,7 @@ public class BOJ1932 {
 				}
 
 			}
-
+			//마지막 노드들에서 가장 큰거 찾음
 			for (int i = 0; i < n; i++) {
 
 				if (max < tri[n - 1][i]) {
@@ -44,7 +44,7 @@ public class BOJ1932 {
 			}
 
 		} 
-		//트리 깊이가 1ㅣㅇㄹ 때
+		//트리 깊이가 1일때
 		else {
 			max = tri[0][0];
 		}

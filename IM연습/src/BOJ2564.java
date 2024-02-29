@@ -23,7 +23,7 @@ public class BOJ2564 {
 		for (int i = 0; i < store; i++) {
 			if (map[i][0] == dongdir) {
 				sum += Math.abs(map[i][1] - dong);
-				System.out.println(sum);
+//				System.out.println(sum);
 				continue;
 			}
 			int x = map[i][0] * dongdir;

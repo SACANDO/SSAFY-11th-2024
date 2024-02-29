@@ -1,22 +1,14 @@
 import java.util.Arrays;
 
 public class 부분집합_3_재귀함수 {
-	static int[] 속;
+	static String[] sok = {"sangchu", "cheese", "patti", "pickle"};
 
 	static int N, R;
-	static boolean[] sel;
+	static boolean[] sel=new boolean[4];
 
 	public static void main(String[] args) {
-		N = 1000;
-		R = 1000;
-		sel = new boolean[R];
-		속 = new int[R];
-
-		
-		for(int i=0; i<1000; i++) {
-			속[i]=i;
-
-		}
+		N = 4;
+		R = 2;
 		powerset(0);
 	}
 
@@ -27,7 +19,7 @@ public class 부분집합_3_재귀함수 {
 			String tmp = "";
 			for (int i = 0; i < N; i++) {
 				if (sel[i])
-					tmp += 속[i];
+					tmp += sok[i];
 			}
 			System.out.println(tmp);
 			return; //대전 일동;

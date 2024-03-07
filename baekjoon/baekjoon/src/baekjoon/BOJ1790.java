@@ -14,8 +14,7 @@ public class BOJ1790 {
 			prefixSum[i] = sum[i] * i + prefixSum[i - 1];
 		}
 		prefixSum[10] = prefixSum[9] + 10;
-		System.out.println(Arrays.toString(sum));
-		System.out.println(Arrays.toString(prefixSum));
+
 
 		Scanner sc = new Scanner(System.in);
 
@@ -39,7 +38,7 @@ public class BOJ1790 {
 			}
 		}
 
-//		System.out.println(nlen);
+
 
 		int idx = 0;
 
@@ -53,18 +52,26 @@ public class BOJ1790 {
 				}
 			}
 
-			// System.out.println(idx);
-			// 몇자리 수에 범위에 걸쳐있는지가 idx
-			// 자리수를 찾으면
 
+			// 몇자리 수에 범위에 걸쳐있는지가 idx-1
+			
+			// 몇자리 수에 걸쳐있는지 확인 후 그 prefixSum[idx] 부터 수를 세기 위해서 
+			// idx부터 몇번째 수인지 센다
+			//1.해당 idx에서 몇번째인지 kk에 저장
 			long kk = k - prefixSum[idx - 1];
-			long kres = (long) ((kk / idx - 1) + Math.pow(10, idx - 1));
+			//2.idx-1이 몇자리 수인지 나타내기 때문에 kk를 idx-1로 나누면 해당 해당 자리수의 몇번째 숫자인지 알 수 있다. 즉 그 숫자 마지막자리로 부터 나머지 만큼 이동 하면됨
+			long kres = (long) ((kk / idx) + Math.pow(10, idx - 1));
+			//3.나머지 저장
 			long kmod = kk % idx;
+			//4.나머지가 0이면 그냥 바로 제일 끝 수 출력
 			int ans = 0;
+
 			if (kmod == 0) {
-				ans = (int) kres % 10;
+				
+				ans = (int) (kres-1) % 10;
 			} else {
-				ans = (int) ((kres + 1) / (Math.pow(10, idx - kmod))) % 10;
+				//5. 나머지가 0이 아니면 다음 숫자로 넘어가서 이동후  출력
+				ans = (int) ((kres) / (Math.pow(10, idx- kmod))) % 10;
 
 			}
 

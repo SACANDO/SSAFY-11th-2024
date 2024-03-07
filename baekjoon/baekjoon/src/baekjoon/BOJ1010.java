@@ -14,7 +14,7 @@ public class BOJ1010 {
 		for(int t=1; t<=tc; t++) {
 			n=sc.nextInt();
 			m= sc.nextInt();  
-			fArr = new boolean[m];
+
 			dp = new int[m][n];
 			bridge(0,0);
 			System.out.println(cnt);
@@ -29,19 +29,11 @@ public class BOJ1010 {
 			return 1;
 		}
 		
-		for(int i=idx;i<m; i++) {
-			fArr[i]=true;
-			if(dp[i+1][east+1]!=0) {
-				return dp[i+1][east+1];
-			} else {
-				dp[i+1][east+1]=bridge(i+1,east+1);
+		for(int i=idx;i<m-n+east; i++) {
+			for(int j=1;j<n; j++) {
+				bridge(i+j,east+j);
 			}
-			fArr[i]=false;
-			if(dp[i+1][east]!=0) {
-				return dp[i+1][east];
-			} else {
-				dp[i+1][east]=bridge(i+1,east);
-			}
+			
 		}
 		return 0;
 	}

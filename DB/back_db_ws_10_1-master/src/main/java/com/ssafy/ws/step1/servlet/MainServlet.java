@@ -108,7 +108,7 @@ public class MainServlet extends HttpServlet {
 		// 전달받은 파라미터로 Car 객체를 생성하고, attribute에 등록한다.
 		Car car = new Car(vin, modelName, color, mileage);
 		request.setAttribute("car", car);
-
+		
 		// DB에 자동차 추가
 		try {
 			dao.insertCar(car);

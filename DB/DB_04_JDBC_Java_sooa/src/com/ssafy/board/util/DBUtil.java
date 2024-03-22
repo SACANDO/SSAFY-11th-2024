@@ -16,7 +16,7 @@ public class DBUtil {
 	// DB와 연결하기위해 필요한 DB의 URL
 	private final String url = "jdbc:mysql://localhost:3306/ssafy_board?serverTimezone=UTC";
 	// DB의 USER 이름
-	private final String username = "root";
+	private final String username = "ssafy";
 	// 위 USER의 PASSWORD
 	private final String password = "ssafy";
 	// Mysql 드라이버 클래스 이름
@@ -49,6 +49,8 @@ public class DBUtil {
     	return DriverManager.getConnection(url, username, password);
     }
 
+//	
+	
 	/**
      * 사용한 리소스들을 정리한다.
      * Connection, Statement, ResultSet 모두 AutoCloseable 타입이다.

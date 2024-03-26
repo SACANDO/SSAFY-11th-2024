@@ -9,6 +9,7 @@ public class 조합_2_재귀함수_반복문 {
 	static String[] sel;
 	static List<String[]> list = new ArrayList<>();
 	public static void main(String[] args) {
+		
 		N = 4;
 		R = 2;
 		sel = new String[R];

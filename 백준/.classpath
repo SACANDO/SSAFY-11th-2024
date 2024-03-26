@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Gold/2011. 암호코드"/>
+	<classpathentry kind="src" path="Silver/1992. 쿼드트리"/>
+	<classpathentry kind="src" path="Silver/2564. 경비원"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

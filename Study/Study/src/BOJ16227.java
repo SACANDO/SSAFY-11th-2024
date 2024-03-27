@@ -4,19 +4,19 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-class Info implements Comparable<Info>{
-	Info(int next, int weight) {
-		this.next=next;
-		this.weight=weight;
-	}
-	int next;
-	int weight;
-	
-	@Override
-	public int compareTo(Info o) {
-		return this.weight-o.weight;
-	}
-}
+//class Info implements Comparable<Info>{
+//	Info(int next, int weight) {
+//		this.next=next;
+//		this.weight=weight;
+//	}
+//	int next;
+//	int weight;
+//	
+//	@Override
+//	public int compareTo(Info o) {
+//		return this.weight-o.weight;
+//	}
+//}
 public class BOJ16227 {
 	static int[] distance;
 	public static void main(String[] args) {

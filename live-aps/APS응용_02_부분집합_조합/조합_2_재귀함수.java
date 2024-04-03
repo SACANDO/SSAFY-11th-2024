@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class 조합_2_재귀함수_반복문 {
+public class 조합_2_재귀함수 {
 	// 데이터 배열
 	static String[] 속 = { "상추", "패티", "치즈", "피클" };
 	static int N, R;
@@ -46,21 +46,7 @@ public class 조합_2_재귀함수_반복문 {
 //		sel[sidx] = null; 	//이거 필요해? 굳이 원복하지 않아도 OK 덮어버림
 		combination(idx+1, sidx); //해당 idx번쨰 재료 sidx 위치에 안넣었어요~
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 	}
 

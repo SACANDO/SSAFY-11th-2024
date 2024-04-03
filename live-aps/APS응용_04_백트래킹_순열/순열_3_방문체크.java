@@ -20,6 +20,7 @@ public class 순열_3_방문체크 {
 	public static void perm(int idx) {
 		if(idx == N) {//다뽑았어~~
 			System.out.println(Arrays.toString(result));
+//			
 			return;
 		}
 		
@@ -27,7 +28,7 @@ public class 순열_3_방문체크 {
 		for(int i = 0 ; i<N; i++) {
 			//이거 썼지롱!
 			if(visited[i])continue;
-			//아래의 코드가 실행이 된다는 뜻은? 안썼지롱이면 실행한다.
+			//아래의 코드가 실행이 된다는 뜻은? 안 썼지롱이면 실행한다.
 			result[idx] = nums[i];
 			visited[i] = true; //이제 썼지롱!
 			perm(idx+1);//다음 자리 판단 해줘잉~

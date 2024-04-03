@@ -20,6 +20,7 @@ public class 부분집합_1_반복문 {
 							if(sel[m] == 1)
 								System.out.print(재료[m]);
 						}
+						
 						System.out.println(":김밥");
 					}
 				}

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class 조합_1_재귀함수 {
+public class 조합_1_재귀함수_반복문 {
 	// 데이터 배열
 	static String[] 속 = { "상추", "패티", "치즈", "피클" };
 	static int N, R;
@@ -28,6 +28,7 @@ public class 조합_1_재귀함수 {
 		for(int i = idx; i<= N-R+sidx; i++) {
 			sel[sidx] = 속[i]; //재료 뽑았어요~~
 			combination(i+1, sidx+1);
+			
 		}
 		
 		

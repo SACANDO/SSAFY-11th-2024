@@ -1,0 +1,3 @@
+[submodule "live-spring"]
+	path = live-spring
+	url = https://lab.ssafy.com/s11/javabi/live-spring.git

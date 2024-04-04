@@ -29,9 +29,9 @@ public class 보호필름 {
 					copy[i][j] = Integer.parseInt(line2[j]);
 				}
 			}
-			ans=13;
+			ans = 13;
 			if (check(0))
-				System.out.println("#"+t+" " + 0);
+				System.out.println("#" + t + " " + 0);
 			else {
 				comb(0, 0);
 				System.out.println("#" + t + " " + ans);
@@ -43,49 +43,37 @@ public class 보호필름 {
 		if (sidx >= K)
 			return;
 		for (int i = idx; i <= D - K + sidx; i++) {
-			
-			//0으로 바꾸고
 			zero(i);
-			//체크
 			if (check(sidx)) {
-//				System.out.println("--------"+sidx);
-				ans = ans>sidx + 1?sidx+1 : ans;
-				renew(i);
-//				System.out.println(ans);
-				return;
+				ans = ans > sidx + 1 ? sidx + 1 : ans;
 			}
-			//안됐으면 보내기
+
 			comb(idx + 1, sidx + 1);
-			
-			//이젠 1로 바꾸고
+
 			one(i);
-			//체크
+			// 체크
 			if (check(sidx)) {
-//				System.out.println("--------"+sidx);
-				ans = ans> sidx + 1? sidx+1 :ans;
-				renew(i);
-//				System.out.println(ans);
-				return;
+				ans = ans > sidx + 1 ? sidx + 1 : ans;
 			}
-			//안됐으면 보내기
+
 			comb(idx + 1, sidx + 1);
-			
-			//다시 돌려놓기
 			renew(i);
 
 		}
 	}
-	
+
 	static void zero(int i) {
 		for (int j = 0; j < W; j++) {
 			film[i][j] = 0;
 		}
 	}
+
 	static void one(int i) {
 		for (int j = 0; j < W; j++) {
 			film[i][j] = 1;
 		}
 	}
+
 	static void renew(int i) {
 		for (int j = 0; j < W; j++) {
 			film[i][j] = copy[i][j];
@@ -93,7 +81,8 @@ public class 보호필름 {
 	}
 
 	static boolean check(int sidx) {
-		if(sidx==1) System.out.println("-----"+sidx);
+//		if (sidx == 1)
+//			System.out.println("-----" + sidx);
 		boolean flag = true;
 
 		for (int j = 0; j < W; j++) {
@@ -101,7 +90,7 @@ public class 보호필름 {
 			int medi = film[0][j];
 			for (int i = 1; i < D; i++) {
 				if (cnt >= K)
-					continue;
+					break;
 				if (film[i][j] == medi) {
 					cnt++;
 				} else {
@@ -111,14 +100,15 @@ public class 보호필름 {
 			}
 			if (cnt < K)
 				flag = false;
-			if(sidx==1)System.out.println(cnt);
+//			if (sidx == 1)
+//				System.out.println(cnt);
 		}
 //		System.out.println(flag);
-		if(flag&& sidx==1) {
-			for(int[] ii : film) {
-				System.out.println(Arrays.toString(ii));
-			}
-		}
+//		if (sidx == 1) {
+//			for (int[] ii : film) {
+//				System.out.println(Arrays.toString(ii));
+//			}
+//		}
 		return flag;
 	}
 

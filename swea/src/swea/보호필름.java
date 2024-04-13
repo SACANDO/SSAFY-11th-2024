@@ -29,7 +29,7 @@ public class 보호필름 {
 					copy[i][j] = Integer.parseInt(line2[j]);
 				}
 			}
-			ans = 13;
+			ans = K;
 			if (check(0))
 				System.out.println("#" + t + " " + 0);
 			else {
@@ -39,38 +39,39 @@ public class 보호필름 {
 		}
 	}
 
-	static void comb(int idx, int sidx) {
-		if (sidx >= K)
+	static void comb(int idx, int cnt) {
+		if (cnt >= K)
 			return;
-		for (int i = idx; i <= D - K + sidx; i++) {
-			zero(i);
-			if (check(sidx)) {
-				ans = ans > sidx + 1 ? sidx + 1 : ans;
-			}
+		if (idx >= D)
+			return;
 
-			comb(idx + 1, sidx + 1);
-
-			one(i);
-			// 체크
-			if (check(sidx)) {
-				ans = ans > sidx + 1 ? sidx + 1 : ans;
-			}
-
-			comb(idx + 1, sidx + 1);
-			renew(i);
-
+		comb(idx + 1, cnt);
+		if (check(cnt)) {
+			ans = ans > cnt + 1 ? cnt + 1 : ans;
 		}
+
+		///////////////////
+		injection(idx, 0);
+		if (check(cnt)) {
+			ans = ans > cnt + 1 ? cnt + 1 : ans;
+		}
+		comb(idx + 1, cnt + 1);
+
+		/////////////////////
+		injection(idx, 1);
+		if (check(cnt)) {
+			ans = ans > cnt + 1 ? cnt + 1 : ans;
+		}
+
+		comb(idx + 1, cnt + 1);
+		renew(idx);
+
+//		
 	}
 
-	static void zero(int i) {
+	static void injection(int i, int num) {
 		for (int j = 0; j < W; j++) {
-			film[i][j] = 0;
-		}
-	}
-
-	static void one(int i) {
-		for (int j = 0; j < W; j++) {
-			film[i][j] = 1;
+			film[i][j] = num;
 		}
 	}
 
@@ -81,8 +82,7 @@ public class 보호필름 {
 	}
 
 	static boolean check(int sidx) {
-//		if (sidx == 1)
-//			System.out.println("-----" + sidx);
+
 		boolean flag = true;
 
 		for (int j = 0; j < W; j++) {
@@ -100,15 +100,10 @@ public class 보호필름 {
 			}
 			if (cnt < K)
 				flag = false;
-//			if (sidx == 1)
-//				System.out.println(cnt);
+			
+
 		}
-//		System.out.println(flag);
-//		if (sidx == 1) {
-//			for (int[] ii : film) {
-//				System.out.println(Arrays.toString(ii));
-//			}
-//		}
+
 		return flag;
 	}
 

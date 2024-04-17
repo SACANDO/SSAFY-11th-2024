@@ -5,12 +5,12 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Info{
-	boolean isVisited;
-	int n;
-}
 
 public class BOJ2636 {
+	static class Info{
+		boolean isVisited;
+		int n;
+	}
 	static int r, c, cnt, cmp, time;
 	static Info[][] map;
 	static Queue<Info> search = new LinkedList<>();

@@ -57,7 +57,7 @@ public class BOJ16235 {
 
 	static void spring() {
 		// 나이만큼 양분 먹기 
-		while()
+		
 		// 나이만큼 양분 못 먹으면 죽는다 -> summer에게 반환
 		// 나이 1 증가 하기
 		// 한칸에 나무가 여러개면 어린 나무부터 양분 먹기

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- name space는 UserRepo의 fully qualified name으로 설정한다. -->
+<mapper namespace="com.ssafy.ws.model.dao.UserDao">
+
+	<!-- DELETE -->
+
+	<delete id="delete" parameterType="int">
+		delete from user
+		where user_seq = #{userSeq}
+	</delete>
+
+	<!-- UPDATE -->
+
+	<update id="update" parameterType="User">
+		update user
+		set user_pwd = #{userPwd}
+		where user_seq = #{userSeq}
+	</update>
+	
+	<!-- 사용자 정보를 저장한다. id는 repo클래스의 메소드 이름과 일치시킨다. -->
+	<insert id="signup" parameterType="User" >
+		insert into user (id, user_pwd, user_name, user_rank, joined_at)
+		values (#{id}, #{userPwd}, #{userName}, 1, #{joinedAt})		
+	</insert>
+
+	<!-- 조건에 따른 검색 -->
+	<select id="searchById" parameterType="String" resultType="User">
+		select * from user
+		where id = #{id}
+	</select>
+	
+	<select id="selectAll">
+		select * from user
+	</select>
+	
+	
+</mapper>

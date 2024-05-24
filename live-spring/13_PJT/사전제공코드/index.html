@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AJAX 요청</title>
+  </head>
+  <body>
+    <img src="http://localhost:8080/img/dog02.jpg">
+
+    <button id="btn">게시글 조회</button>
+    <script>
+      document.querySelector("#btn").addEventListener("click", function () {
+        fetch("http://localhost:8080/api-board/board/1")
+          .then((response) => response.text())
+          .then((text) => console.log(text));
+      });
+    </script>
+  </body>
+</html>
